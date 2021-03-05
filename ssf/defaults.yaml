@@ -54,7 +54,7 @@ ssf_node_anchors:
           branch:
             # TODO: `base` can be removed in favour of `github:remote:upstream:branch`
             base: 'master'
-            pr: 'chore/standardise-structure'
+            pr: 'chore/update-pre-commit'
             upstream: 'upstream'
           commit:
             # NOTE: The version number in the `body` is automatically updated during
@@ -62,8 +62,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "chore(rubocop): allow use of '`'YAML.load'`' for '`'_mapdata.rb'`' [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/296'
+            title: "chore(pre-commit): apply latest changes"
+            body: '* Automated using https://github.com/dafyddj/ssf-techneg-formula/pull/1'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
@@ -1158,6 +1158,21 @@ ssf:
     systemd: *formula_default
     telegraf: *formula_default
     template:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: 'share'
+          2:
+            <<: *isk_suite_default
+            name: 'upstart'
+          3:
+            <<: *isk_suite_default
+            name: 'gentoo'
+    template_github:
       <<: *formula_default
       context:
         <<: *context_default
