@@ -4567,6 +4567,72 @@ ssf:
         pre-commit_semantic-release.sh: *file__pre-commit_semantic-release--sh
         release-rules.js: *file__release-rules--js
         release.config.js: *file__release--config--js
+    ssf_dafyddj:
+      context:
+        codeowners:
+          entries:
+            global:
+              - '*': '@dafyddj'
+            specific_ssf: []
+        git:
+          github:
+            owner: 'dafyddj'
+            repo: 'ssf_dafyddj-formula'
+          gitlab:
+            owner: 'dafyddj'
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the ssf formula is setup and configured correctly
+        inspec_suites_matrix: []
+        platforms: []
+        platforms_matrix: []
+        rubocop:
+          AllCops:
+            Exclude:
+              - 'ssf/files/**/*'
+        use_tofs: true
+        yamllint:
+          ignore:
+            additional:
+              - ssf/files/default/.cirrus.yml
+              - ssf/files/default/.gitlab-ci.yml
+              - ssf/files/default/.pre-commit-config.yaml
+              - ssf/files/default/.rubocop.yml
+              - ssf/files/default/.salt-lint
+              - ssf/files/default/.travis.yml
+              - ssf/files/default/.yamllint
+              - ssf/files/default/inspec/inspec.yml
+              - ssf/files/default/kitchen.yml
+              - ssf/files/tofs_arvados-formula/.travis.yml
+              - ssf/files/tofs_ssf-formula/.yamllint
+          rules:
+            commas:
+              ignore:
+                - ssf/defaults.yaml
+                - ssf/formulas.yaml
+      semrel_files:
+        .github/workflows/commitlint.yml: *file__--github__workflows__commitlint--yml
+        bin/install-hooks: *file__bin__install-hooks
+        docs/CONTRIBUTING.rst: *file__docs__CONTRIBUTING--rst
+        docs/TOFS_pattern.rst: *file__docs__TOFS_pattern--rst
+        formula/libtofs.jinja: *file__formula__libtofs--jinja
+        .gitignore: *file__--gitignore
+        .gitlab-ci.yml: *file__--gitlab-ci--yml
+        .pre-commit-config.yaml: *file__--pre-commit-config--yaml
+        .rstcheck.cfg: *file__--rstcheck--cfg
+        .rubocop.yml: *file__--rubocop--yml
+        .salt-lint: *file__--salt-lint
+        .travis.yml: *file__--travis--yml
+        .yamllint: *file__--yamllint
+        CODEOWNERS: *file__CODEOWNERS
+        commitlint.config.js: *file__commitlint--config--js
+        Gemfile: *file__Gemfile
+        Gemfile.lock: *file__Gemfile--lock
+        pre-commit_semantic-release.sh: *file__pre-commit_semantic-release--sh
+        release-rules.js: *file__release-rules--js
+        release.config.js: *file__release--config--js
     stack:
       context:
         codeowners:

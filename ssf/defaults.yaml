@@ -1138,6 +1138,7 @@ ssf:
     sqldeveloper: *formula_default
     sqlplus: *formula_default
     ssf: *formula_default
+    ssf_dafyddj: *formula_default
     stack: *formula_default
     strongswan: *formula_default
     stunnel: *formula_default
