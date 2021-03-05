@@ -63,7 +63,7 @@ ssf_node_anchors:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
             title: "chore(pre-commit): apply latest changes"
-            body: '* Automated using https://github.com/dafyddj/ssf-techneg-formula/pull/1'
+            body: '* Automated using https://github.com/dafyddj/ssf_dafyddj-formula/pull/1'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'saltstack-formulas'
