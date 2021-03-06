@@ -1072,3 +1072,88 @@ ssf:
         formula/_mapdata/init.sls:
           <<: *file__formula___mapdata___init--sls
           alt_semrel_formula: 'TEMPLATE'
+    template_github:
+      context:
+        git:
+          github:
+            repo: 'template_github-formula'
+        inspec_suites_kitchen:
+          0:
+            excludes: *platforms_non_systemd
+            inspec_yml:
+              depends: *depends_on_suite_share
+              summary: >-
+                Verify that the TEMPLATE formula is setup and configured correctly
+              supports: *supports_all_including_oracle_and_gentoo
+            provisioner:
+              pillars:
+                - '*':
+                    - TEMPLATE
+                    - define_roles
+              pillars_from_files:
+                - TEMPLATE.sls: 'pillar.example'
+                - define_roles.sls: 'test/salt/pillar/define_roles.sls'
+              state_top:
+                - '*':
+                    - ._mapdata
+                    - TEMPLATE
+          1: *inspec_suites_kitchen__share_suite
+          2:
+            includes: *platforms_os_upstart
+            provisioner:
+              pillars:
+                - '*':
+                    - TEMPLATE
+                    - define_roles
+              pillars_from_files:
+                - TEMPLATE.sls: 'test/salt/pillar/upstart.sls'
+                - define_roles.sls: 'test/salt/pillar/define_roles.sls'
+              state_top:
+                - '*':
+                    - ._mapdata
+                    - TEMPLATE
+            verifier: *verifier_inspec_tests_default
+          3:
+            includes: *platforms_gentoo
+            provisioner:
+              pillars:
+                - '*':
+                    - TEMPLATE
+                    - gentoo
+                    - define_roles
+              pillars_from_files:
+                - TEMPLATE.sls: 'pillar.example'
+                - gentoo.sls: 'test/salt/pillar/gentoo.sls'
+                - define_roles.sls: 'test/salt/pillar/define_roles.sls'
+              state_top:
+                - '*':
+                    - ._mapdata
+                    - TEMPLATE
+            verifier: *verifier_inspec_tests_default
+        inspec_suites_matrix:
+          - default
+          - upstart
+          - gentoo
+        use_libsaltcli: true
+        use_tofs: true
+      semrel_files:
+        <<: *semrel_files_inc_map_jinja_verifier
+        formula/libsaltcli.jinja:
+          <<: *file__formula__libsaltcli--jinja
+          alt_semrel_formula: 'TEMPLATE'
+        formula/libtofs.jinja:
+          <<: *file__formula__libtofs--jinja
+          alt_semrel_formula: 'TEMPLATE'
+        inspec/inspec.yml:
+          <<: *file__inspec__inspec--yml
+          alt_semrel_formula: 'TEMPLATE'
+        kitchen.yml:
+          <<: *file__kitchen--yml
+          alt_semrel_formula: 'TEMPLATE'
+        # Overrides for extra files in `*semrel_files_inc_map_jinja_verifier`
+        formula/_mapdata/_mapdata.jinja:
+          <<: *file__formula___mapdata___mapdata--jinja
+          alt_semrel_formula: 'TEMPLATE'
+        formula/_mapdata/init.sls:
+          <<: *file__formula___mapdata___init--sls
+          alt_semrel_formula: 'TEMPLATE'
