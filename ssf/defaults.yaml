@@ -55,7 +55,7 @@ ssf_node_anchors:
             # TODO: `base` can be removed in favour of `github:remote:upstream:branch`
             base: 'master'
             pr: 'chore/standardise-structure'
-            upstream: 'upstream'
+            upstream: 'master'
           commit:
             # NOTE: The version number in the `body` is automatically updated during
             #       the release phase via. `pre-commit_semantic-release.sh`
@@ -66,11 +66,11 @@ ssf_node_anchors:
             body: '* Automated using https://github.com/myii/ssf-formula/pull/296'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
-            owner: 'saltstack-formulas'
+            owner: 'dafyddj'
             repo: ''
             remote:
               upstream:
-                name: 'upstream'
+                name: 'origin'
                 branch: 'master'
               fork:
                 name: 'origin'
