@@ -630,3 +630,18 @@ ssf:
           3:
             <<: *isk_suite_default
             name: 'gentoo'
+    template_github_windows:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: 'share'
+          2:
+            <<: *isk_suite_default
+            name: 'upstart'
+          3:
+            <<: *isk_suite_default
+            name: 'gentoo'
