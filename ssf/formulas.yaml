@@ -767,6 +767,30 @@ ssf:
         docs/CONTRIBUTING.rst:
           <<: *file__docs__CONTRIBUTING--rst
           dest_file: 'CONTRIBUTING.rst'
+    dotfiles:
+      context:
+        git:
+          github:
+            repo: 'dotfiles-formula'
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the dotfiles formula is setup and configured correctly
+              supports: *supports_debian_ubuntu
+            provisioner:
+              state_top:
+                - '*':
+                    - .git
+                    - .shellrc
+            verifier:
+              controls:
+                - .git.config
+                - .shellrc.setup
+        platforms: *platforms_osfamily_debian
+        platforms_matrix: *platforms_matrix_osfamily_debian
+        use_tofs: true
+      semrel_files: *semrel_files_default
     ssf:
       context:
         codeowners:
