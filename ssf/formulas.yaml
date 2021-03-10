@@ -791,6 +791,31 @@ ssf:
         platforms_matrix: *platforms_matrix_osfamily_debian
         use_tofs: true
       semrel_files: *semrel_files_default
+    firefox:
+      context:
+        git:
+          github:
+            repo: 'firefox-formula'
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the firefox formula is setup and configured correctly
+              supports:
+                - windows
+            provisioner:
+              state_top:
+                - '*':
+                    - .
+            verifier:
+              controls:
+                - .package.install
+                - .gpo.install
+                - .gpo.config
+        platforms: *platforms_osfamily_debian
+        platforms_matrix: *platforms_matrix_osfamily_debian
+        use_tofs: true
+      semrel_files: *semrel_files_default
     ssf:
       context:
         codeowners:
