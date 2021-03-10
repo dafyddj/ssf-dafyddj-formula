@@ -767,6 +767,27 @@ ssf:
         docs/CONTRIBUTING.rst:
           <<: *file__docs__CONTRIBUTING--rst
           dest_file: 'CONTRIBUTING.rst'
+    dehydrated:
+      context:
+        git:
+          github:
+            repo: 'dehydrated-formula'
+        inspec_suites_kitchen:
+          0:
+            inspec_yml:
+              summary: >-
+                Verify that the dehydrated formula is setup and configured correctly
+              supports:
+                - windows
+            verifier:
+              controls:
+                - .git.install
+                - .script.install
+        platforms: *platforms_osfamily_debian
+        platforms_matrix: *platforms_matrix_osfamily_debian
+        use_libsaltcli: true
+        use_tofs: true
+      semrel_files: *semrel_files_default
     dotfiles:
       context:
         git:

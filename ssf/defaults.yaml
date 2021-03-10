@@ -568,6 +568,7 @@ ssf:
 
   semrel_formulas:
     .github: *formula_default
+    dehydrated: *formula_default
     dotfiles: *formula_default
     firefox: *formula_default
     ssf: *formula_default
