@@ -55,7 +55,7 @@ ssf_node_anchors:
             # TODO: `base` can be removed in favour of `github:remote:upstream:branch`
             base: 'master'
             pr: 'chore/standardise-structure'
-            upstream: 'upstream'
+            upstream: 'master'
           commit:
             # NOTE: The version number in the `body` is automatically updated during
             #       the release phase via. `pre-commit_semantic-release.sh`
@@ -66,11 +66,11 @@ ssf_node_anchors:
             body: '* Automated using https://github.com/myii/ssf-formula/pull/296'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
-            owner: 'saltstack-formulas'
+            owner: 'dafyddj'
             repo: ''
             remote:
               upstream:
-                name: 'upstream'
+                name: 'origin'
                 branch: 'master'
               fork:
                 name: 'origin'
@@ -568,595 +568,11 @@ ssf:
 
   semrel_formulas:
     .github: *formula_default
-    apache:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'modules'
-          2:
-            <<: *isk_suite_default
-            name: 'arch'
-    apt:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          0:
-            <<: *isk_suite_default
-            name: 'repositories'
-          1:
-            <<: *isk_suite_default
-            name: 'preferences'
-          2:
-            <<: *isk_suite_default
-            name: 'unattended'
-          3:
-            <<: *isk_suite_default
-            name: ''
-    apt-cacher: *formula_default
-    arvados:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          0:
-            <<: *isk_suite_default
-            name: 'api'
-          1:
-            <<: *isk_suite_default
-            name: 'controller'
-          2:
-            <<: *isk_suite_default
-            name: 'keepproxy'
-          3:
-            <<: *isk_suite_default
-            name: 'keepstore'
-          4:
-            <<: *isk_suite_default
-            name: 'keepweb'
-          5:
-            <<: *isk_suite_default
-            name: 'repo'
-          6:
-            <<: *isk_suite_default
-            name: 'shell'
-          7:
-            <<: *isk_suite_default
-            name: 'websocket'
-          8:
-            <<: *isk_suite_default
-            name: 'workbench'
-          9:
-            <<: *isk_suite_default
-            name: 'workbench2'
-          10:
-            <<: *isk_suite_default
-            name: 'dispatcher'
-    bind: *formula_default
-    cert: *formula_default
-    chrony: *formula_default
-    collectd: *formula_default
-    consul: *formula_default
-    cron: *formula_default
-    deepsea: *formula_default
-    devstack:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          0:
-            <<: *isk_suite_default
-            name: 'ubuntu'
-    dhcpd:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'share'
-    django: *formula_default
-    docker:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          0:
-            <<: *isk_suite_default
-            name: 'archive'
-          1:
-            <<: *isk_suite_default
-            name: 'package'
-          2:
-            <<: *isk_suite_default
-            name: 'clean'
-    eclipse:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          0:
-            <<: *isk_suite_default
-            name: 'java'
-          1:
-            <<: *isk_suite_default
-            name: 'cpp'
-          2:
-            <<: *isk_suite_default
-            name: 'javascript'
-    epel: *formula_default
-    exim: *formula_default
-    fail2ban: *formula_default
-    firewalld:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'share'
-    golang:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'package'
-    grafana: *formula_default
-    haproxy: *formula_default
-    hostsfile: *formula_default
-    icinga2: *formula_default
-    influxdb: *formula_default
-    iptables:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'tables'
-    iscsi:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'redhat'
-          2:
-            <<: *isk_suite_default
-            name: 'arch'
-    java:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          0:
-            <<: *isk_suite_default
-            name: 'adopt'
-          1:
-            <<: *isk_suite_default
-            name: 'amazon'
-          2:
-            <<: *isk_suite_default
-            name: 'graalvm'
-          3:
-            <<: *isk_suite_default
-            name: 'haikuvm'
-          4:
-            <<: *isk_suite_default
-            name: 'intellij'
-          5:
-            <<: *isk_suite_default
-            name: 'oracle'
-          6:
-            <<: *isk_suite_default
-            name: 'zulu'
-    jetbrains-appcode: *formula_default
-    jetbrains-clion:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'arch'
-    jetbrains-datagrip:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'arch'
-    jetbrains-goland:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'arch'
-    jetbrains-intellij:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'arch'
-    jetbrains-phpstorm:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'arch'
-    jetbrains-pycharm:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'arch'
-    jetbrains-resharper: *formula_default
-    jetbrains-rider:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'arch'
-    jetbrains-rubymine:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'arch'
-    jetbrains-webstorm:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'arch'
-    keepalived: *formula_default
-    letsencrypt:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          0:
-            <<: *isk_suite_default
-            name: 'git'
-          1:
-            <<: *isk_suite_default
-            name: 'deb'
-          2:
-            <<: *isk_suite_default
-            name: 'rpm'
-    libvirt:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'share'
-          2:
-            <<: *isk_suite_default
-            name: 'clean'
-    locale:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'redhat'
-    logrotate: *formula_default
-    lvm:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          0:
-            <<: *isk_suite_default
-            name: 'loop4-loop5'
-          1:
-            <<: *isk_suite_default
-            name: 'loop5-loop6'
-    lynis:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'share'
-          2:
-            <<: *isk_suite_default
-            name: 'repo'
-          3:
-            <<: *isk_suite_default
-            name: 'amazonlinux'
-    mattermost: *formula_default
-    maven:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'arch'
-    mongodb: *formula_default
-    mysql: *formula_default
-    nfs: *formula_default
-    nginx: *formula_default
-    nifi: *formula_default
-    node:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'archive'
-          2:
-            <<: *isk_suite_default
-            name: 'source'
-          3:
-            <<: *isk_suite_default
-            name: 'repo'
-    ntp: *formula_default
-    nut:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'mode-eq-none'
-    openldap: *formula_default
-    openntpd:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'share'
-    openssh:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'share'
-    openvpn:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'share'
-    packages:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'share'
-          2:
-            <<: *isk_suite_default
-            name: 'debian'
-          3:
-            <<: *isk_suite_default
-            name: 'ubuntu'
-          4:
-            <<: *isk_suite_default
-            name: 'fedora'
-          5:
-            <<: *isk_suite_default
-            name: 'redhat8'
-          6:
-            <<: *isk_suite_default
-            name: 'centos'
-          7:
-            <<: *isk_suite_default
-            name: 'amazon'
-          8:
-            <<: *isk_suite_default
-            name: 'suse'
-          9:
-            <<: *isk_suite_default
-            name: 'arch'
-    php:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'share'
-          2:
-            <<: *isk_suite_default
-            name: 'debian'
-          3:
-            <<: *isk_suite_default
-            name: 'ubuntu'
-          4:
-            <<: *isk_suite_default
-            name: 'redhat'
-          5:
-            <<: *isk_suite_default
-            name: 'suse'
-    postfix: *formula_default
-    postgres: *formula_default
-    powerdns:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'share'
-    proftpd:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          0:
-            <<: *isk_suite_default
-            name: 'debian'
-          1:
-            <<: *isk_suite_default
-            name: 'redhat'
-          2:
-            <<: *isk_suite_default
-            name: 'suse'
-          3:
-            <<: *isk_suite_default
-            name: 'amazonlinux'
-    prometheus:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'repo'
-    rabbitmq:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'share'
-          2:
-            <<: *isk_suite_default
-            name: 'latest'
-    redis: *formula_default
-    rkhunter:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'debian'
-          2:
-            <<: *isk_suite_default
-            name: 'redhat'
-          3:
-            <<: *isk_suite_default
-            name: 'suse'
-    rng-tools:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'share'
-    rspamd: *formula_default
-    salt:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          0:
-            <<: *isk_suite_default
-            name: 'share'
-          1:
-            <<: *isk_suite_default
-            name: 'v3002-py3'
-          2:
-            <<: *isk_suite_default
-            name: 'v3001-py3'
-          3:
-            <<: *isk_suite_default
-            name: 'v3000-py3'
-          4:
-            <<: *isk_suite_default
-            name: 'v3000-py2'
-    sqldeveloper: *formula_default
-    sqlplus: *formula_default
+    dehydrated: *formula_default
+    dotfiles: *formula_default
+    firefox: *formula_default
     ssf: *formula_default
     ssf_dafyddj: *formula_default
-    stack: *formula_default
-    strongswan: *formula_default
-    stunnel: *formula_default
-    sudoers:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'share'
-    suricata: *formula_default
-    sysctl: *formula_default
-    syslog-ng: *formula_default
-    sysstat: *formula_default
-    systemd: *formula_default
-    telegraf: *formula_default
     template:
       <<: *formula_default
       context:
@@ -1172,8 +588,7 @@ ssf:
           3:
             <<: *isk_suite_default
             name: 'gentoo'
-    timezone: *formula_default
-    tomcat:
+    template_github:
       <<: *formula_default
       context:
         <<: *context_default
@@ -1182,51 +597,54 @@ ssf:
           1:
             <<: *isk_suite_default
             name: 'share'
-    ufw:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'without-ipv6'
-    users:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'vimrc'
-    varnish:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          1:
-            <<: *isk_suite_default
-            name: 'suse'
-    vault:
-      <<: *formula_default
-      context:
-        <<: *context_default
-        inspec_suites_kitchen:
-          <<: *isk_default
-          0:
-            <<: *isk_suite_default
-            name: 'install_binary'
-          1:
-            <<: *isk_suite_default
-            name: 'dev_server'
           2:
             <<: *isk_suite_default
-            name: 'prod_server'
+            name: 'upstart'
           3:
             <<: *isk_suite_default
-            name: ''
-    vim: *formula_default
-    vsftpd: *formula_default
-    zabbix: *formula_default
+            name: 'gentoo'
+    template_github_linux:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: 'share'
+          2:
+            <<: *isk_suite_default
+            name: 'upstart'
+          3:
+            <<: *isk_suite_default
+            name: 'gentoo'
+    template_github_mac:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: 'share'
+          2:
+            <<: *isk_suite_default
+            name: 'upstart'
+          3:
+            <<: *isk_suite_default
+            name: 'gentoo'
+    template_github_windows:
+      <<: *formula_default
+      context:
+        <<: *context_default
+        inspec_suites_kitchen:
+          <<: *isk_default
+          1:
+            <<: *isk_suite_default
+            name: 'share'
+          2:
+            <<: *isk_suite_default
+            name: 'upstart'
+          3:
+            <<: *isk_suite_default
+            name: 'gentoo'
