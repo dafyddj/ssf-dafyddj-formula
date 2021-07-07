@@ -62,8 +62,8 @@ ssf_node_anchors:
             #       An alternative method could be to use:
             #       `git describe --abbrev=0 --tags`
             # yamllint disable rule:line-length rule:quoted-strings
-            title: "chore(rubocop): allow use of '`'YAML.load'`' for '`'_mapdata.rb'`' [skip ci]"
-            body: '* Automated using https://github.com/myii/ssf-formula/pull/296'
+            title: "chore(pre-commit): update to latest config"
+            body: '* Automated using https://github.com/dafyddj/ssf_dafyddj-formula/pull/7'
             # yamllint enable rule:line-length rule:quoted-strings
           github:
             owner: 'dafyddj'
