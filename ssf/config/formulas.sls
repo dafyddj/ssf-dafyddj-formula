@@ -126,6 +126,8 @@ prepare-git-branch-for-{{ formula }}:
 {#-           Scenario 01: `_mapdata.rb` was originally `_mapdata_spec.rb` #}
 {%-           if semrel_file == 'inspec/controls/_mapdata.rb' %}
 {%-             set prev_dest = dest.replace('_mapdata.rb', '_mapdata_spec.rb') %}
+{%-           elif semrel_file == '.github/workflows/release.yml' %}
+{%-             set prev_dest = dest.replace('release.yml', 'main.yml') %}
 {%-           endif %}
 {#-           Only run this state if a `prev_dest` has been identified #}
 {%-           if prev_dest %}
