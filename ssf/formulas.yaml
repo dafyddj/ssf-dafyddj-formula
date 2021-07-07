@@ -673,6 +673,8 @@ ssf_node_anchors:
       semrel_files: &semrel_files_default
         .github/workflows/commitlint.yml: &file__--github__workflows__commitlint--yml
           <<: *file_default
+        .github/workflows/release.yml: &file__--github__workflows__release--yml
+          <<: *file_default
         bin/install-hooks: &file__bin__install-hooks
           <<: *file_default
           mode: 755
